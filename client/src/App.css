@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --light-theme-color: #fff;
+  --dark-theme-color: #000;
+  --light-text-color: #fff;
+  --black-text-color: #000;
+}
+.App {
+  min-height: 100vh;
+  background-color: var(--light-theme-color);
+}
+.App.dark-theme {
+  background-color: var(--dark-theme-color);
+}
+p {
+  color: var(--primary-text-color);
+}
+.App.light-theme p,
+.App.light-theme h1 {
+  color: var(--black-text-color);
+}
+.App.dark-theme p,
+.App.dark-theme h1 {
+  color: var(--light-text-color);
+}
