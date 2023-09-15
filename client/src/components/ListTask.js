@@ -5,50 +5,7 @@ import SubtaskList from "./SubtaskList";
 import TaskStatus from "./TaskStatus";
 
 function ListTask({ tasks }) {
-  tasks = [
-    {
-      _id: "1",
-      title: "Task 1",
-      subtask: [
-        {
-          _id: "1",
-          title: "Sub task 1",
-          status: "pending",
-        },
-        {
-          _id: "2",
-          title: "Sub task 2",
-          status: "completed",
-        },
-        {
-          _id: "3",
-          title: "Sub task 3",
-          status: "pending",
-        },
-      ],
-    },
-    {
-      _id: "2",
-      title: "Task 2",
-      subtask: [
-        {
-          _id: "1",
-          title: "Sub task 1",
-          status: "pending",
-        },
-        {
-          _id: "2",
-          title: "Sub task 2",
-          status: "completed",
-        },
-        {
-          _id: "3",
-          title: "Sub task 3",
-          status: "completed",
-        },
-      ],
-    },
-  ];
+  console.log("tas", tasks);
   return (
     <Accordion defaultActiveKey={["0"]}>
       {tasks && tasks.length > 0 ? (
@@ -65,7 +22,10 @@ function ListTask({ tasks }) {
                     <Form.Check aria-label="Checkbox for following text input" />
                     <span className="mx-3">{task?.title || "Task Title"}</span>
                   </span>
-                  <TaskStatus total={task?.subtask.length} completed="2" />
+                  <TaskStatus
+                    total={task && task?.subtasks.length}
+                    completed="2"
+                  />
                 </Form.Group>
               </Form>
             </Accordion.Header>
