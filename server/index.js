@@ -1,4 +1,5 @@
 require("dotenv").config();
+const cors = require("cors");
 const express = require("express");
 const app = express();
 const indexRouter = require("./routes");
@@ -10,6 +11,8 @@ mongoose
   .connect(process.env.DB_URL)
   .then(() => console.log("database connected successfully!!!"));
 
+// Enable Cors
+app.use(cors()); //can access data from any domain
 //enable json body
 app.use(express.json());
 // create routes

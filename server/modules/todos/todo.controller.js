@@ -9,7 +9,16 @@ const getById = async (id) => {
 };
 // finding all the content from the database
 const list = async () => {
-  return await Model.find();
+  return await Model.aggregate([
+    {
+      $lookup: {
+        from: "subtasks",
+        localField: "_id",
+        foreignField: "todo",
+        as: "subtasks",
+      },
+    },
+  ]);
 };
 // updating the data
 const updateById = async (id, payload) => {
